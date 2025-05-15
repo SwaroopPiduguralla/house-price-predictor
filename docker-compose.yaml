@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  fastapi:
+    image: swaroop231098/fastapi:dev  # Replace with actual Docker Hub user if needed
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8032:8032"
+
+  streamlit:
+    image: swaroop231098/streamlit:dev  # Replace with actual Docker Hub user if needed
+    build:
+      context: ./streamlit_app
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      API_URL: http://fastapi:8032
