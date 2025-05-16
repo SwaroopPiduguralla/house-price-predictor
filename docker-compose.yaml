@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8032:8032"
+      - "8000:8000"
 
   streamlit:
     image: swaroop231098/streamlit:dev  # Replace with actual Docker Hub user if needed
@@ -17,4 +17,4 @@ services:
     ports:
       - "8501:8501"
     environment:
-      API_URL: http://fastapi:8032
+      API_URL: http://fastapi:8000
